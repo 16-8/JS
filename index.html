@@ -3,8 +3,9 @@
 
 <head>
 	<link rel="stylesheet" href="style.css">
+	<link src="js/script.js">
 	<meta charset="UTF-8">
-	<title>JavaScriptの練習サイト</title>
+	<title>個人開発テスト</title>
 </head>
 
 <body>
@@ -30,7 +31,25 @@
 			</ul>
 		</div>
 	</header>
+	<script>
+		//読み込み時に要素を取得
+		window.addEventListener ('load', function(){
+			const pullDownButton = document.getElementById("lists");
 
+			//マウスカーソルが乗った時のイベント
+			pullDownButton.addEventListener ('mouseover', function(){
+				console.log("乗る");
+			});
+			//マウスカーソルが外れた時のイベント
+			pullDownButton.addEventListener ('mouseout', function(){
+				console.log("外れる");
+			});
+			//クリックされた時のイベント
+			pullDownButton.addEventListener ('click', function(){
+				console.log("クリック");
+			});
+		});
+	</script>
 </body>
 
 </html>
