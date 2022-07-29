@@ -20,6 +20,7 @@
 					<span id="current-list">選択されていません</span>
 				</li>
 				<li class="background-red" id="lists">
+					リスト
 				</li>
 				<li>カリキュラム変更</li>
 			</ul>
@@ -35,19 +36,25 @@
 		//読み込み時に要素を取得
 		window.addEventListener ('load', function(){
 			const pullDownButton = document.getElementById("lists");
+			const pullDownParents = document.getElementById("pull-down");
 
 			//マウスカーソルが乗った時のイベント
 			pullDownButton.addEventListener ('mouseover', function(){
-				pullDownButton.setAttribute("style", "background-color:blue;");
+				this.setAttribute("style", "background-color:blue;");
 			});
 			//マウスカーソルが外れた時のイベント
 			pullDownButton.addEventListener ('mouseout', function(){
-				pullDownButton.removeAttribute("style", "background-color:blue;")
-				pullDownButton.removeAttribute("style", "background-color:green;")
+				this.removeAttribute("style", "background-color:blue;");
 			});
 			//クリックされた時のイベント
 			pullDownButton.addEventListener ('click', function(){
-				pullDownButton.setAttribute("style", "background-color:green;");
+				if (pullDownParents.getAttribute("style")==="display:block;"){
+					pullDownParents.removeAttribute("style", "display:block;");
+					console.log("非表示");
+				} else {
+					pullDownParents.setAttribute("style", "display:block;");
+					console.log("表示");
+				}
 			});
 		});
 	</script>
