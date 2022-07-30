@@ -58,6 +58,7 @@ li {
 	right: 370px;
 	top: 70px;
 	background-color: #ffffff;
+	display: none;
 }
 
 .background-red {
@@ -81,4 +82,7 @@ li {
 
 .hidden {
 	display: none;
+}
+.show{
+	display: block;
 }

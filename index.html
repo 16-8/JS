@@ -25,7 +25,7 @@
 				<li>カリキュラム変更</li>
 			</ul>
 			<ul class="show-lists hidden" id="pull-down">
-				<li class="pull-down-list">リスト1</li>
+				<li class="pull-down-list"><a href="https://fp-curriculum.com/">リスト1</a></li>
 				<li class="pull-down-list">リスト2</li>
 				<li class="pull-down-list">リスト3</li>
 				<li class="pull-down-list">リスト4</li>
@@ -34,9 +34,11 @@
 	</header>
 	<script>
 		//読み込み時に要素を取得
-		window.addEventListener ('load', function(){
+		function pullDown(){
 			const pullDownButton = document.getElementById("lists");
 			const pullDownParents = document.getElementById("pull-down");
+			const pullDownChild = document.querySelectorAll(".pull-down-list");
+			const currentList = document.getElementById("current-list");
 
 			//マウスカーソルが乗った時のイベント
 			pullDownButton.addEventListener ('mouseover', function(){
@@ -56,7 +58,16 @@
 					console.log("表示");
 				}
 			});
-		});
+			pullDownChild.forEach (function(list){
+				list.addEventListener('click', function(){
+					const value = list.innerHTML;
+					currentList.innerHTML = value;
+					console.log(value);
+				});
+
+			});
+		}
+		window.addEventListener ('load', pullDown);
 	</script>
 </body>
 
